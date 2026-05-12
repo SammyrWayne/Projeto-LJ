@@ -84,7 +84,7 @@ else:
 
     # ---------------- FUNÇÕES ----------------
 
-    def salvar_cliente(nome, cpf, endereco, dt_nasc, tp_cliente, sexo):
+    def salvar_cliente(nome, cpf, endereco, dt_nasc, tp_cliente, marca):
 
         arquivo_existe = os.path.isfile(ARQUIVO)
 
@@ -100,7 +100,7 @@ else:
                     "Endereco",
                     "Nascimento",
                     "Tipo",
-                    "Sexo"
+                    "Marca"
                 ])
 
             writer.writerow([
@@ -109,7 +109,7 @@ else:
                 endereco,
                 dt_nasc,
                 tp_cliente,
-                sexo
+                marca
             ])
 
     def carregar_clientes():
@@ -152,8 +152,8 @@ else:
 
             fig = px.pie(
                 df,
-                names="Sexo",
-                title="Clientes por Sexo"
+                names="Marca",
+                title="Marcas de Carros dos Clientes"
             )
 
             st.plotly_chart(
@@ -190,9 +190,9 @@ else:
                 ["Pessoa Física", "Pessoa Jurídica"]
             )
 
-            sexo = st.selectbox(
-                "Sexo",
-                ["Masculino", "Feminino"]
+            marca = st.selectbox(
+                "Marca do Carro",
+                ["BMW", "Audi", "Ford", "Chevrolet"]
             )
 
         if st.button("Cadastrar Cliente"):
@@ -209,7 +209,7 @@ else:
                         endereco,
                         dt_nasc,
                         tp_cliente,
-                        sexo
+                        marca
                     )
 
                     st.success("✅ Cliente cadastrado com sucesso!")
