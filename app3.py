@@ -28,39 +28,49 @@ else:
     # ---------------- ESTILO ----------------
 
     st.markdown(
-        """
-        <style>
+    """
+    <style>
 
-        .stApp {
-            background-color: #121212;
-            color: white;
-        }
+    .stApp {
+        background-color: #121212;
+        color: white;
+    }
 
-        .stTextInput > div > div > input {
-            border-radius: 10px;
-        }
+    label, p, h1, h2, h3, h4, h5, h6, span {
+        color: white !important;
+    }
 
-        .stDateInput > div > div {
-            border-radius: 10px;
-        }
+    .stTextInput > div > div > input {
+        border-radius: 10px;
+        color: white;
+        background-color: #1e1e1e;
+    }
 
-        .stSelectbox > div > div {
-            border-radius: 10px;
-        }
+    .stDateInput > div > div {
+        border-radius: 10px;
+        color: white;
+        background-color: #1e1e1e;
+    }
 
-        .stButton > button {
-            background-color: #00c853;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            height: 45px;
-            width: 100%;
-            font-size: 16px;
-            font-weight: bold;
-        }
+    .stSelectbox > div > div {
+        border-radius: 10px;
+        color: white;
+        background-color: #1e1e1e;
+    }
 
-        </style>
-        """,
+    .stButton > button {
+        background-color: #00c853;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        height: 45px;
+        width: 100%;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    </style>
+    """,
         unsafe_allow_html=True
     )
 
