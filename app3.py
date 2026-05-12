@@ -157,23 +157,23 @@ else:
         col1.metric("Clientes", total_clientes)
         col2.metric("Sistema", "Online")
         col3.metric("Cadastros", total_clientes)
+        
 
         if not df.empty and "Marca" in df.columns:
+            fig = px.pie(
+            df,
+            names="Marca",
+            title="Marcas de Carros dos Clientes"
+        )
 
-    fig = px.pie(
-        df,
-        names="Marca",
-        title="Marcas de Carros dos Clientes"
-    )
+        st.plotly_chart(
+            fig,
+            use_container_width=True
+        )
 
-    st.plotly_chart(
-        fig,
-        use_container_width=True
-    )
+    else:
 
-else:
-
-    st.info("Nenhum dado disponível para o gráfico!")
+        st.info("Nenhum dado disponível para o gráfico!")
 
     # ---------------- CADASTRO ----------------
 
