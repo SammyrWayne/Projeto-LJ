@@ -159,22 +159,26 @@ else:
         col3.metric("Cadastros", total_clientes)
         
 
-     if not df.empty:
 
-    fig = px.pie(
-        df,
-        names="Marca",
-        title="Marcas de Carros dos Clientes"
-    )
+    
+        
 
-    st.plotly_chart(
-        fig,
-        use_container_width=True
-    )
+         if not df.empty:
+             fig = px.pie(
+                df,
+                names="Marca",
+                title="Marcas de Carros dos Clientes"
+             )
+             
 
-else:
-
-    st.info("Nenhum dado disponível!")
+             st.plotly_chart(
+                 fig,
+                 use_container_width=True
+             )
+         
+         else:
+             
+             st.info("Nenhum dado disponível!")
     # ---------------- CADASTRO ----------------
 
     elif menu == "Cadastro":
