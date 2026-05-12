@@ -8,6 +8,8 @@ from validate_docbr import CPF
 from login2 import tela_login
 
 
+# ---------------- CONFIG ----------------
+
 ARQUIVO = "clientes2.csv"
 validador_cpf = CPF()
 
@@ -22,55 +24,58 @@ if not st.session_state.logado:
 
 else:
 
-    # ---------------- CONFIG ----------------
-
-
     # ---------------- ESTILO ----------------
 
     st.markdown(
-    """
-    <style>
+        """
+        <style>
 
-    .stApp {
-        background-color: #121212;
-        color: white;
-    }
+        .stApp {
+            background-color: #121212;
+            color: white;
+        }
 
-    label, p, h1, h2, h3, h4, h5, h6, span {
-        color: white !important;
-    }
+        label, p, h1, h2, h3, h4, h5, h6, span {
+            color: white !important;
+        }
 
-    .stTextInput > div > div > input {
-        border-radius: 10px;
-        color: white;
-        background-color: #1e1e1e;
-    }
+        .stTextInput > div > div > input {
+            border-radius: 10px;
+            color: white;
+            background-color: #1e1e1e;
+        }
 
-    .stDateInput > div > div {
-        border-radius: 10px;
-        color: white;
-        background-color: #1e1e1e;
-    }
+        .stDateInput > div > div {
+            border-radius: 10px;
+            color: white;
+            background-color: #1e1e1e;
+        }
 
-    .stSelectbox > div > div {
-        border-radius: 10px;
-        color: white;
-        background-color: #1e1e1e;
-    }
+        .stSelectbox > div > div {
+            border-radius: 10px;
+            color: white;
+            background-color: #1e1e1e;
+        }
 
-    .stButton > button {
-        background-color: #00c853;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        height: 45px;
-        width: 100%;
-        font-size: 16px;
-        font-weight: bold;
-    }
+        .stButton > button {
+            background-color: #00c853;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            height: 45px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+        }
 
-    </style>
-    """,
+        [data-testid="metric-container"] {
+            background-color: #1e1e1e;
+            border-radius: 15px;
+            padding: 15px;
+        }
+
+        </style>
+        """,
         unsafe_allow_html=True
     )
 
@@ -102,6 +107,7 @@ else:
 
             writer = csv.writer(arquivo)
 
+            # cria cabeçalho apenas uma vez
             if not arquivo_existe:
 
                 writer.writerow([
@@ -113,6 +119,7 @@ else:
                     "Marca"
                 ])
 
+            # salva cliente
             writer.writerow([
                 nome,
                 cpf,
@@ -123,15 +130,17 @@ else:
             ])
 
     def carregar_clientes():
-        try:
 
+        try:
 
             if os.path.exists(ARQUIVO):
 
                 return pd.read_csv(ARQUIVO)
 
             return pd.DataFrame()
+
         except:
+
             return pd.DataFrame()
 
     def limpar_clientes():
@@ -157,28 +166,24 @@ else:
         col1.metric("Clientes", total_clientes)
         col2.metric("Sistema", "Online")
         col3.metric("Cadastros", total_clientes)
-        
 
+        if not df.empty and "Marca" in df.columns:
 
-    
-        
-
-         if not df.empty:
-             fig = px.pie(
+            fig = px.pie(
                 df,
                 names="Marca",
                 title="Marcas de Carros dos Clientes"
-             )
-             
+            )
 
-             st.plotly_chart(
-                 fig,
-                 use_container_width=True
-             )
-         
-         else:
-             
-             st.info("Nenhum dado disponível!")
+            st.plotly_chart(
+                fig,
+                use_container_width=True
+            )
+
+        else:
+
+            st.info("Nenhum dado disponível!")
+
     # ---------------- CADASTRO ----------------
 
     elif menu == "Cadastro":
@@ -258,14 +263,16 @@ else:
 
                 st.dataframe(
                     resultado,
-                    use_container_width=True
+                    use_container_width=True,
+                    hide_index=True
                 )
 
             else:
 
                 st.dataframe(
                     df,
-                    use_container_width=True
+                    use_container_width=True,
+                    hide_index=True
                 )
 
         else:
