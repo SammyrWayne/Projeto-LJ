@@ -36,27 +36,88 @@ else:
             color: white;
         }
 
+        /* TÍTULOS PRINCIPAIS EM PRETO */
+        h1, h2, h3 {
+            color: #000000 !important;
+        }
+
+        /* SIDEBAR */
+        [data-testid="stSidebar"] {
+            background-color: #f5f5f5;
+        }
+
+        .sidebar-title {
+            color: #000000 !important;
+        }
+
+        /* INPUTS TEXT */
         .stTextInput > div > div > input {
             border-radius: 10px;
+            color: white !important;
+            background-color: #1e1e1e !important;
         }
 
+        .stTextInput > label {
+            color: white !important;
+        }
+
+        /* DATE INPUT */
         .stDateInput > div > div {
             border-radius: 10px;
+            color: white !important;
+            background-color: #1e1e1e !important;
         }
 
+        .stDateInput > label {
+            color: white !important;
+        }
+
+        /* DATE INPUT TEXTO */
+        .stDateInput input {
+            color: white !important;
+        }
+
+        /* SELECTBOX */
         .stSelectbox > div > div {
             border-radius: 10px;
+            color: white !important;
+            background-color: #1e1e1e !important;
         }
 
+        .stSelectbox > label {
+            color: white !important;
+        }
+
+        /* SELECTBOX OPÇÕES */
+        .stSelectbox [data-baseweb="select"] {
+            color: #000000 !important;
+        }
+
+        /* BUTTON */
         .stButton > button {
             background-color: #00c853;
-            color: white;
+            color: #000000 !important;
             border: none;
             border-radius: 10px;
             height: 45px;
             width: 100%;
             font-size: 16px;
             font-weight: bold;
+        }
+
+        /* DATAFRAME */
+        .dataframe {
+            color: white !important;
+        }
+
+        .dataframe td, .dataframe th {
+            color: white !important;
+            background-color: #1e1e1e !important;
+        }
+
+        /* LABELS GERAIS */
+        label, p, span {
+            color: white !important;
         }
 
         </style>
@@ -67,6 +128,17 @@ else:
     # ---------------- SIDEBAR ----------------
 
     st.sidebar.title("🚗 Lava Jato Pro")
+
+    st.sidebar.markdown(
+        """
+        <style>
+        [data-testid="stSidebarNav"] {
+            background-color: #1a1a1a;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
     menu = st.sidebar.selectbox(
         "Menu",
