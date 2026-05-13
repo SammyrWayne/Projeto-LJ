@@ -8,8 +8,6 @@ from validate_docbr import CPF
 from login2 import tela_login
 
 
-# ---------------- CONFIG ----------------
-
 ARQUIVO = "clientes2.csv"
 validador_cpf = CPF()
 
@@ -24,6 +22,9 @@ if not st.session_state.logado:
 
 else:
 
+    # ---------------- CONFIG ----------------
+
+
     # ---------------- ESTILO ----------------
 
     st.markdown(
@@ -35,26 +36,16 @@ else:
             color: white;
         }
 
-        label, p, h1, h2, h3, h4, h5, h6, span {
-            color: white !important;
-        }
-
         .stTextInput > div > div > input {
             border-radius: 10px;
-            color: white;
-            background-color: #1e1e1e;
         }
 
         .stDateInput > div > div {
             border-radius: 10px;
-            color: white;
-            background-color: #1e1e1e;
         }
 
         .stSelectbox > div > div {
             border-radius: 10px;
-            color: white;
-            background-color: #1e1e1e;
         }
 
         .stButton > button {
@@ -66,12 +57,6 @@ else:
             width: 100%;
             font-size: 16px;
             font-weight: bold;
-        }
-
-        [data-testid="metric-container"] {
-            background-color: #1e1e1e;
-            border-radius: 15px;
-            padding: 15px;
         }
 
         </style>
@@ -107,7 +92,6 @@ else:
 
             writer = csv.writer(arquivo)
 
-            # cria cabeçalho apenas uma vez
             if not arquivo_existe:
 
                 writer.writerow([
@@ -119,7 +103,6 @@ else:
                     "Marca"
                 ])
 
-            # salva cliente
             writer.writerow([
                 nome,
                 cpf,
@@ -130,17 +113,15 @@ else:
             ])
 
     def carregar_clientes():
-
         try:
+
 
             if os.path.exists(ARQUIVO):
 
                 return pd.read_csv(ARQUIVO)
 
             return pd.DataFrame()
-
         except:
-
             return pd.DataFrame()
 
     def limpar_clientes():
@@ -152,9 +133,6 @@ else:
     # ---------------- CARREGAR DADOS ----------------
 
     df = carregar_clientes()
-
-    st.write(df)
-    st.write(df.columns)
 
     # ---------------- DASHBOARD ----------------
 
@@ -170,7 +148,7 @@ else:
         col2.metric("Sistema", "Online")
         col3.metric("Cadastros", total_clientes)
 
-        if not df.empty and "Marca" in df.columns:
+        if not df.empty:
 
             fig = px.pie(
                 df,
@@ -266,16 +244,14 @@ else:
 
                 st.dataframe(
                     resultado,
-                    use_container_width=True,
-                    hide_index=True
+                    use_container_width=True
                 )
 
             else:
 
                 st.dataframe(
                     df,
-                    use_container_width=True,
-                    hide_index=True
+                    use_container_width=True
                 )
 
         else:
