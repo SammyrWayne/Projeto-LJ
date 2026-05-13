@@ -153,6 +153,9 @@ else:
 
     df = carregar_clientes()
 
+    st.write(df)
+    st.write(df.columns)
+
     # ---------------- DASHBOARD ----------------
 
     if menu == "Dashboard":
