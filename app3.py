@@ -115,6 +115,70 @@ else:
             background-color: #1e1e1e !important;
         }
 
+        /* MENU DE CONTEXTO DA TABELA */
+        .dataframe .menu {
+            background-color: #ffffff !important;
+        }
+
+        .dataframe .menu-item {
+            color: #000000 !important;
+        }
+
+        .dataframe .menu-item:hover {
+            background-color: #f0f0f0 !important;
+        }
+
+        /* MENU DE CONTEXTO ALTERNATIVO */
+        [data-testid="stDataFrame"] .menu {
+            background-color: #ffffff !important;
+        }
+
+        [data-testid="stDataFrame"] .menu-item {
+            color: #000000 !important;
+        }
+
+        [data-testid="stDataFrame"] .menu-item:hover {
+            background-color: #f0f0f0 !important;
+        }
+
+        /* MENU DE CONTEXTO GERAL */
+        .stDataFrame [role="menu"] {
+            background-color: #ffffff !important;
+        }
+
+        .stDataFrame [role="menuitem"] {
+            color: #000000 !important;
+        }
+
+        .stDataFrame [role="menuitem"]:hover {
+            background-color: #f0f0f0 !important;
+        }
+
+        /* ÍCONES DO MENU DE CONTEXTO */
+        .stDataFrame svg {
+            color: #000000 !important;
+            fill: #000000 !important;
+        }
+
+        .stDataFrame [role="menuitem"] svg {
+            color: #000000 !important;
+            fill: #000000 !important;
+        }
+
+        /* MENU DE CONTEXTO PANDAS */
+        .dataframe-toolbar {
+            background-color: #ffffff !important;
+        }
+
+        .dataframe-toolbar button {
+            color: #000000 !important;
+        }
+
+        .dataframe-toolbar svg {
+            color: #000000 !important;
+            fill: #000000 !important;
+        }
+
         /* LABELS GERAIS */
         label, p, span {
             color: white !important;
