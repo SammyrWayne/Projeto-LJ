@@ -328,7 +328,7 @@ else:
 
             marca = st.selectbox(
                 "Marca do Carro",
-                ["BMW", "Audi", "Ford", "Chevrolet"]
+                ["BMW", "Audi", "Mercedez", "Lexus", "Volkswagen", "Ford", "Chevrolet", ]
             )
 
         if st.button("Cadastrar Cliente"):
