@@ -1,4 +1,5 @@
 import streamlit as st
+from datetime import datetime
 
 USUARIO = "admin"
 SENHA = "9999"
@@ -17,6 +18,9 @@ def tela_login():
     )
 
     st.title("Login")
+    agora = datetime.now()
+    data_hora = agora.strftime("%d/%m/%Y %H:%M:%S")
+    st.caption(f"Data e hora atual: {data_hora}")
     
     st.write("Faça login para acessar o sistema.")
     usuario = st.text_input("Usuário")
