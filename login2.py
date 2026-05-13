@@ -8,7 +8,7 @@ def tela_login():
         """
         <style>
 
-        st.App{
+        .stApp{
         background-color: #121212;
     }
     </style>
